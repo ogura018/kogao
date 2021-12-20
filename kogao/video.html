@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動画 | 小顔体操</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+</head>
+
+<body class="count">
+
+    <header></header>
+
+    <main>
+
+        <div class="video" id="videodouga">
+            <p class="video__text"></p>
+        </div>
+
+        <div class="camera">
+            <video class="camera__video" id='video' autoplay muted playsinline></video>
+            <button class="camera__btn" onclick="start()">はじまり</button>
+            <a class="camera__stamp" href="stamp.html">
+                <button class="camera__btn camera__stop">終了</button>
+            </a>
+        </div>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
