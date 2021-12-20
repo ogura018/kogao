@@ -1,0 +1,59 @@
+body {
+  background-color: #fff;
+}
+
+main {
+  padding: 0;
+}
+
+.video {
+  background-color: #3e0808;
+  width: 100%;
+  height: 407px;
+}
+
+.video__text {
+  padding-top: 190px;
+  padding-left: 30px;
+  color: #fff;
+  font-size: 100px;
+  text-align: center;
+}
+
+.videowaku {
+  position: relative;
+  width: 385px;
+  height: auto;
+}
+
+.camera {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.camera__video {
+  width: 100%;
+  height: 100%;
+}
+
+.camera__btn {
+  position: absolute;
+  top: 730px;
+  left: 30px;
+  padding: 6px 8px;
+  border: 1px solid #829cba;
+  border-radius: 16px;
+  background: #b4c8e0;
+}
+
+.camera__stamp {
+  color: #000;
+}
+
+.camera__stop {
+  position: absolute;
+  top: 730px;
+  left: 130px;
+}
+/*# sourceMappingURL=video.css.map */
