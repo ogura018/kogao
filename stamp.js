@@ -14,7 +14,6 @@ function MoveToTop() {
 };
 
 function SendCompleteMsg() {
-	// alert("nice");
 	document.querySelector(".stamp").style.display = "none";
 	DISP_COMPLETE.style.display = "block";
 	document.body.style.margin = 0;
@@ -23,7 +22,6 @@ function SendCompleteMsg() {
 
 window.addEventListener("load", () => {
 	// ロードして1秒後にスタンプ追加
-	// setTimeout(Stump, 1000);
 	Stump();
 
 	// 25超えるとリセット
