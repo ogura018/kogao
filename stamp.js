@@ -3,7 +3,6 @@ const DISP_COMPLETE = document.querySelector(".disp_complete");
 
 let _num = 0;
 
-
 function Stump() {
 	_num = localStorage.getItem("stamps_num");
 	_num++;
@@ -12,7 +11,7 @@ function Stump() {
 
 function MoveToTop() {
 	window.location.href = 'index.html';
-}
+};
 
 function SendCompleteMsg() {
 	// alert("nice");
@@ -39,11 +38,7 @@ window.addEventListener("load", () => {
 	// スタンプ追加メイン構造
 	if (localStorage.getItem("stamps_num") < 26) {
 		let stamp_for = window.localStorage.getItem("stamps_num");
-		console.log(parseInt(stamp_for) + 10);
-		console.log(stamp_for + 100);
-
 		for (let i = 1; i <= parseInt(stamp_for); i++) {
-			console.log("a");
 			let _stampimg = document.createElement("img");
 			_stampimg.setAttribute("src", `images/dog__stamp.PNG`);
 			_stampimg.setAttribute("class", "stamp_img");
@@ -57,16 +52,15 @@ window.addEventListener("load", () => {
 		} else {
 			DISP_COMPLETE.style.display = "none";
 			document.querySelector(".stamp").style.display = "block";
-
 		};
 	};
 });
 
 // 動確用
-window.addEventListener("click", () => {
+/* window.addEventListener("click", () => {
 	localStorage.removeItem("stamps_num");
 });
 
 if (localStorage.getItem("stamps_num") <= 25) {
 	console.log("a");
-}
+} */
