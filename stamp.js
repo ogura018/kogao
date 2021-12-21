@@ -28,8 +28,6 @@ window.addEventListener("load", () => {
 
 	// 25超えるとリセット
 	if (localStorage.getItem("stamps_num") == 26) {
-
-
 		localStorage.removeItem("stamps_num");
 		_num = 1;
 		localStorage.setItem("stamps_num", _num);
