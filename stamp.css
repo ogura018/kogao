@@ -58,8 +58,11 @@ body {
   right: 0;
 }
 
-.disp_complete {
+.stamp_disp {
   text-align: center;
+}
+
+.disp_complete {
   display: none;
 }
 
@@ -68,7 +71,11 @@ body {
   vertical-align: middle;
 }
 
-.complete_msg p {
+.finish_msg {
+  margin: 280px auto 203px auto;
+}
+
+.disp_msg_p {
   font-size: 20px;
 }
 
@@ -78,5 +85,11 @@ body {
 
 .complete_img1 {
   text-align: right;
+}
+
+.stamp_top {
+  margin-top: 35px;
+  text-align: center;
+  display: block;
 }
 /*# sourceMappingURL=stamp.css.map */

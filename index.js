@@ -2,7 +2,7 @@ let box = document.querySelectorAll('.box');
 let agoBox = document.querySelector('.box__ago');
 let eyeBox = document.querySelector('.box__eye');
 
-let _v_stretch_random = ["stretch01", "stretch02", "stretch03"];
+let _v_stretch_random = ["stretch01"];
 let _v_niko_random = ["nikoniko01", "nikoniko02"];
 let _v_aiueo_random = ["aiueo01", "aiueo02"];
 
