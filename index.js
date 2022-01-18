@@ -61,6 +61,7 @@ window.addEventListener('load', () => {
 });
 
 let count = 4;
+let newVideo = document.createElement('video');
 let countdown = function () {
     console.log(count--);
     let id = setTimeout(countdown, 1000);
@@ -70,7 +71,7 @@ let countdown = function () {
             countText.textContent = "GO";
             countText.style.display = "none";
 
-            let newVideo = document.createElement('video');
+
             newVideo.className = 'videowaku';
 
 
@@ -102,7 +103,11 @@ navigator.mediaDevices.getUserMedia({
     CAMERA_INPUT.play()
 }).catch(e => {
     console.log(e);
-})
+});
+
+newVideo.addEventListener("ended", () => {
+    location.href = "stamp.html";
+});
 
 
 
