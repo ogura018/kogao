@@ -2,32 +2,30 @@ let box = document.querySelectorAll('.box');
 let agoBox = document.querySelector('.box__ago');
 let eyeBox = document.querySelector('.box__eye');
 
-let _v_stretch_random = ["stretch01"];
-let _v_niko_random = ["nikoniko01", "nikoniko02"];
+let _v_niko_random = ["nico01", "nico02"];
 let _v_aiueo_random = ["aiueo01", "aiueo02"];
 
-let _v_stretch = 1 + Math.floor(Math.random() * 3);
 let _v_niko = 1 + Math.floor(Math.random() * 2);
 let _v_aiueo = 1 + Math.floor(Math.random() * 2);
 
 function parts(p) {
     if (p == "eye") {
-        localStorage.setItem(`"${p}"`, `http://noncha.net/video/stretch0${_v_stretch}`);
+        localStorage.setItem(`"video"`, `http://noncha.net/video/stretch01`);
         console.log(p);
     } else if (p == "cheek") {
-        localStorage.setItem(`"${p}"`, `http://noncha.net/video/aiueo0${_v_aiueo}`);
+        localStorage.setItem(`"video"`, `http://noncha.net/video/aiueo0${_v_aiueo}`);
         console.log(p);
     } else if (p == "mouse") {
-        localStorage.setItem(`"${p}"`, 'http://noncha.net/video/guruguru01');
+        localStorage.setItem(`"video"`, 'http://noncha.net/video/guru01');
         console.log(p);
     } else if (p == "faceline") {
-        localStorage.setItem(`"${p}"`, `http://noncha.net/video/nikoniko0${_v_niko}`);
+        localStorage.setItem(`"video"`, `http://noncha.net/video/nico0${_v_niko}`);
         console.log(p);
     };
 };
 
 function ClearStorageItem() {
-    localStorage.clear();
+    localStorage.removeItem("video");
 };
 
 box.forEach(element => {
@@ -47,9 +45,6 @@ for (let i = 0; i < box.length; i++) {
 };
 
 
-
-
-
 let videoBG = document.querySelector('.video');
 
 let countText = document.querySelector('.video__text');
@@ -59,11 +54,6 @@ console.log(countText.innerHTML);
 let _count = 4;
 
 console.log(_count);
-
-
-
-
-
 
 
 window.addEventListener('load', () => {
@@ -86,6 +76,7 @@ let countdown = function () {
 
             for (let i = 0; i < localStorage.length; i++) {
                 newVideo.src = `${localStorage.getItem(localStorage.key(i))}.mp4`;
+                // newVideo.style.height = "max-content";
             };
 
             newVideo.controls = true;
@@ -101,6 +92,20 @@ let countdown = function () {
 
 
 // camera
+const CAMERA_INPUT = document.getElementById("video_input");
+
+navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: false
+}).then(stream => {
+    CAMERA_INPUT.srcObject = stream;
+    CAMERA_INPUT.play()
+}).catch(e => {
+    console.log(e);
+})
+
+
+
 async function setupCamera() {
     const stream = await navigator.mediaDevices.getUserMedia({ 'audio': true, 'video': true });
     const video = document.getElementById('video');

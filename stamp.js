@@ -22,7 +22,7 @@ function SendCompleteMsg() {
 	DISP_END.style.display = "block";
 	DISP_COMPLETE.style.display = "block";
 	DISP_FINISH.style.display = "none";
-	BTN_TOP.style.display="none"
+	BTN_TOP.style.display = "none"
 	document.body.style.margin = 0;
 	setTimeout(MoveToTop, 2000);
 };
@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
 	};
 
 	// スタンプ追加メイン構造
-	let stamp_done = []
+	let stamp_done = [];
 
 	if (localStorage.getItem("stamps_num") < 26) {
 		let stamp_for = window.localStorage.getItem("stamps_num");
@@ -50,16 +50,21 @@ window.addEventListener("load", () => {
 			_stampimg.setAttribute("id", `stamp_day${i}`);
 
 			document.querySelector(".stamps").appendChild(_stampimg);
-
 			stamp_done.push(_stampimg);
 
+			console.log(stamp_done.slice(0, i - 1));
 			console.log(stamp_done.slice(-1)[0]);
 
+			// stamp_done.slice(-1)[0].style.display = "none";
+
+
+
 			function Stamp_today() {
-				document.querySelector(".stamps").appendChild(stamp_done.pop());
+				stamp_done.slice(-1)[0].style.display = "inline";
+				// console.log(stamp_done);
 			};
 
-			setTimeout(Stamp_today, 2000);
+			setTimeout(Stamp_today, 1000);
 
 			console.log(stamp_done);
 
@@ -69,7 +74,7 @@ window.addEventListener("load", () => {
 				BTN_TOP.style.display = "none";
 				DISP_END.style.display = "block";
 				DISP_FINISH.style.display = "block";
-				DISP_COMPLETE.style.display="none"
+				DISP_COMPLETE.style.display = "none"
 				document.body.style.margin = 0;
 				setTimeout(MoveToTop, 2000);
 			});

@@ -9,7 +9,7 @@ main {
 .video {
     background-color: #3e0808;
     width: 100%;
-    height: 407px;
+    height: 400px;
 
     &__text {
         padding-top: 190px;
@@ -22,8 +22,8 @@ main {
 
 .videowaku {
     position: relative;
-    width: 385px;
-    height: auto;
+    width: auto;
+    height: 300px;
 }
 
 .camera {
@@ -33,7 +33,7 @@ main {
 
     &__video {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 
     &__btn {
