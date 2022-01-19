@@ -34,13 +34,15 @@ body {
     width: max-content;
 }
 
-.stamps {
-    height: 100%;
-}
-
 .card {
     background-image: url("./images/stampcard.jpg");
     background-size: contain;
+    width: 330px;
+    height: 330px;
+}
+
+.stamps {
+    padding: 8px 3px 3px 3px;
     width: 325px;
     height: 325px;
 }

@@ -263,6 +263,10 @@ main {
   position: relative;
 }
 
+.menu_locked {
+  display: none;
+}
+
 .box {
   position: absolute;
   width: 18px;

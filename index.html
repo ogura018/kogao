@@ -19,11 +19,10 @@
             <div class="back__box">
                 <div class="mannequin">
                     <img class="mannequin__face" src="images/face.png" alt="顔">
-                    <div class="box box__mouse" data-id="mouse"></div>
-                    <div class="box box__eye" data-id="eye"></div>
-                    <div class="box box__cheek" data-id="cheek"></div>
-                    <div class="box box__faceline" data-id="faceline"></div>
-
+                    <div class="box box__eye " data-id="eye"></div>
+                    <div class="box box__cheek menu_locked" data-id="cheek"></div>
+                    <div class="box box__mouse menu_locked" data-id="mouse"></div>
+                    <div class="box box__faceline menu_locked" data-id="faceline"></div>
                 </div>
             </div>
             <p class="back__text">クリックすると体操が始まります。</p>
@@ -32,8 +31,29 @@
 
     <footer></footer>
 
-    <script src="index.js"></script>
+
 
 </body>
+<script src="index.js"></script>
+<script>
+    let menu_locked_num = parseInt(localStorage.getItem("stamps_num"));
+    const MENU_LOCKED = [document.querySelector(".box__cheek"), document.querySelector(".box__mouse"), document.querySelector(".box__faceline")];
+
+    addEventListener("load", () => {
+        menu_locked_num = parseInt(localStorage.getItem("menu"));
+        if (menu_locked_num == 1) {
+            MENU_LOCKED[0].style.display = "block";
+        } else if (menu_locked_num == 2) {
+            MENU_LOCKED[0].style.display = "block";
+            MENU_LOCKED[1].style.display = "block";
+        } else if (menu_locked_num == 3) {
+            MENU_LOCKED[0].style.display = "block";
+            MENU_LOCKED[1].style.display = "block";
+            MENU_LOCKED[2].style.display = "block";
+        };
+    });
+
+
+</script>
 
 </html>

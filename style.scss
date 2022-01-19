@@ -1,6 +1,6 @@
 @import "_ress.min.scss";
 
-$mainColor: #fce8e8;
+$mainColor: #FFCDD2;
 $fontColor: #3e0808;
 
 body {
@@ -54,6 +54,10 @@ main {
     &__face {
         position: relative;
     }
+}
+
+.menu_locked{
+    display: none;
 }
 
 .box {

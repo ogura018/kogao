@@ -10,16 +10,16 @@ let _v_aiueo = 1 + Math.floor(Math.random() * 2);
 
 function parts(p) {
     if (p == "eye") {
-        localStorage.setItem(`"video"`, `http://noncha.net/video/stretch01`);
+        localStorage.setItem("video", `http://noncha.net/video/stretch01`);
         console.log(p);
     } else if (p == "cheek") {
-        localStorage.setItem(`"video"`, `http://noncha.net/video/aiueo0${_v_aiueo}`);
+        localStorage.setItem("video", `http://noncha.net/video/aiueo0${_v_aiueo}`);
         console.log(p);
     } else if (p == "mouse") {
-        localStorage.setItem(`"video"`, 'http://noncha.net/video/guru01');
+        localStorage.setItem("video", 'http://noncha.net/video/guru01');
         console.log(p);
     } else if (p == "faceline") {
-        localStorage.setItem(`"video"`, `http://noncha.net/video/nico0${_v_niko}`);
+        localStorage.setItem("video", `http://noncha.net/video/nico0${_v_niko}`);
         console.log(p);
     };
 };
@@ -76,8 +76,7 @@ let countdown = function () {
 
 
             for (let i = 0; i < localStorage.length; i++) {
-                newVideo.src = `${localStorage.getItem(localStorage.key(i))}.mp4`;
-                // newVideo.style.height = "max-content";
+                newVideo.src = localStorage.getItem("video") + ".mp4";
             };
 
             newVideo.controls = true;
@@ -108,51 +107,3 @@ navigator.mediaDevices.getUserMedia({
 newVideo.addEventListener("ended", () => {
     location.href = "stamp.html";
 });
-
-
-
-async function setupCamera() {
-    const stream = await navigator.mediaDevices.getUserMedia({ 'audio': true, 'video': true });
-    const video = document.getElementById('video');
-    video.srcObject = stream;
-    return new Promise((resolve) => {
-        video.onloadedmetadata = () => {
-            video.width = video.videoWidth / 3;
-            video.height = video.videoHeight / 3;
-            resolve();
-        };
-    });
-}
-
-async function start() {
-    await setupCamera();
-    const deviceInfos = await navigator.mediaDevices.enumerateDevices();
-    deviceInfos.forEach(deviceInfo => {
-        console.log(deviceInfo.kind, deviceInfo.label, deviceInfo.deviceId);
-    });
-    const constraints = await navigator.mediaDevices.getSupportedConstraints();
-    for (const [key, value] of Object.entries(constraints)) {
-        console.log(`${key}: ${value}`);
-    };
-    navigator.mediaDevices.ondevicechange = function (event) {
-        console.log("ondevicechange", event)
-    };
-};
-
-window.addEventListener('load', async () => {
-    if (!navigator.permissions || !navigator.permissions.query) {
-        console.log("this browser doesn't have permission API", navigator.userAgent)
-    };
-    if (!navigator.mediaDevices.getDisplayMedia) {
-        console.log("this browser doesn't have getDisplayMedia", navigator.userAgent)
-    };
-    const deviceInfos = await navigator.mediaDevices.enumerateDevices();
-    deviceInfos.forEach(deviceInfo => {
-        console.log(deviceInfo.kind, deviceInfo.label, deviceInfo.deviceId);
-    });
-});
-
-
-
-
-/* let stampBtn = document.querySelector(".stamp__btn"); */

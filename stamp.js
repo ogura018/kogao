@@ -17,21 +17,41 @@ function MoveToTop() {
 	window.location.href = 'index.html';
 };
 
-function SendCompleteMsg() {
+function SendCompleteMsg(menu_part, name_stretch) {
 	document.querySelector(".stamp").style.display = "none";
 	DISP_END.style.display = "block";
 	DISP_COMPLETE.style.display = "block";
+	document.getElementById("archive0").innerHTML = menu_part;
+	document.getElementById("archive1").innerHTML = name_stretch;
 	DISP_FINISH.style.display = "none";
 	BTN_TOP.style.display = "none"
 	document.body.style.margin = 0;
 	setTimeout(MoveToTop, 2000);
 };
 
+function SendPerfectMsg() {
+	document.querySelector(".stamp").style.display = "none";
+	DISP_END.style.display = "block";
+	DISP_COMPLETE.style.display = "block";
+	document.getElementById("disp_msg_p0").innerHTML = "おめでとうございます！"
+	document.getElementById("disp_msg_p1").innerHTML = "すべての体操をクリアしました！<br>お疲れさまでした！"
+	DISP_FINISH.style.display = "none";
+	BTN_TOP.style.display = "none"
+	document.body.style.margin = 0;
+	setTimeout(MoveToTop, 4000);
+}
+
+
+let menu_locked_num = parseInt(localStorage.getItem("menu"))
+/* let menu_locked_num = parseInt(localStorage.getItem("menu"));
+console.log(menu_locked_num); */
+
 window.addEventListener("load", () => {
-	// ロードして1秒後にスタンプ追加
+	// ロードして(可能なら1秒後に)スタンプ追加
 	Stump();
 
 	// 25超えるとリセット
+
 	if (localStorage.getItem("stamps_num") == 26) {
 		localStorage.removeItem("stamps_num");
 		_num = 1;
@@ -81,15 +101,40 @@ window.addEventListener("load", () => {
 
 		};
 
+
+
 		if (localStorage.getItem("stamps_num") == 25) {
-			// setTimeout(SendCompleteMsg, 1000);
-			SendCompleteMsg();
+			console.log(menu_locked_num++);
+			localStorage.setItem("menu", menu_locked_num++);
+
+			if (menu_locked_num == 1) {
+				SendCompleteMsg("パーツ：目", "目の体操");
+			} else if (menu_locked_num == 2) {
+				SendCompleteMsg("パーツ：右の頬", "右の頬の体操");
+			} else if (menu_locked_num == 3) {
+				SendCompleteMsg("パーツ：口", "口の体操");
+			} else if (menu_locked_num == 4) {
+				SendCompleteMsg("パーツ：左の頬", "左の頬の体操");
+			} else if (menu_locked_num == 5) {
+				SendPerfectMsg();
+				menu_locked_num = 0;
+				localStorage.setItem("menu", 0);
+			};
+
 		} else {
 			DISP_COMPLETE.style.display = "none";
 			document.querySelector(".stamp").style.display = "block";
 		};
 	};
 });
+
+
+// 不正防止
+if (window.performance) {
+	if (performance.navigation.type === 1) {
+		location.href = "index.html"
+	}
+}
 
 // 動確用
 /* window.addEventListener("click", () => {
